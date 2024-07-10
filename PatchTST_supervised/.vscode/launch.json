@@ -1,0 +1,58 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python: run_longExp.py (PatchTST)",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/run_longExp.py",
+            "args": [
+                "--random_seed", "${input:random_seed}",
+                "--is_training", "1",
+                "--root_path", "./dataset/",
+                "--data_path", "ETTh1.csv",
+                "--model_id", "ETTh1_336_${input:pred_len}",
+                "--model", "PatchTST",
+                "--data", "ETTh1",
+                "--features", "M",
+                "--seq_len", "336",
+                "--pred_len", "${input:pred_len}",
+                "--enc_in", "7",
+                "--e_layers", "3",
+                "--n_heads", "4",
+                "--d_model", "16",
+                "--d_ff", "128",
+                "--dropout", "0.3",
+                "--fc_dropout", "0.3",
+                "--head_dropout", "0",
+                "--patch_len", "16",
+                "--stride", "8",
+                "--des", "Exp",
+                "--train_epochs", "100",
+                "--itr", "1",
+                "--batch_size", "128",
+                "--learning_rate", "0.0001"
+            ],
+            "env": {
+                "PYTHONUNBUFFERED": "1"
+            },
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}",
+            "redirectOutput": true
+        }
+    ],
+    "inputs": [
+        {
+            "id": "random_seed",
+            "type": "promptString",
+            "description": "Enter the random seed",
+            "default": "2021"
+        },
+        {
+            "id": "pred_len",
+            "type": "promptString",
+            "description": "Enter the prediction length",
+            "default": "96"
+        }
+    ]
+}
